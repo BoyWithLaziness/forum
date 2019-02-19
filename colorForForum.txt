@@ -1,0 +1,19 @@
+QandA
+
+
+Blue
+HTML code:	#3278F1
+RGB code:	R: 50 G: 120 B: 241
+HSV:	218.01° 79.25% 94.51%
+
+off-white
+HTML code:	#E7E4D5
+RGB code:	R: 231 G: 228 B: 213
+HSV:	50° 7.79% 90.59%
+
+bootstrap color
+danger  -- #d9534f	(217,83,79)
+white   -- #f9f9f9	(249,249,249)
+info    -- #5bc0de	(91,192,222)
+success -- #5cb85c	(92,184,92)
+primary -- #428bca	(66,139,202)

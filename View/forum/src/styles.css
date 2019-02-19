@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+@import '~@ngx-share/button/themes/default/default-theme';
+@import '~ngx-toastr/toastr.css';
+#toast-container > div {
+opacity:1;
+}
+
+.button-background {
+  box-shadow: 5px 5px 5px 5px 	#E7E4D5;
+}

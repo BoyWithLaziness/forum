@@ -1,0 +1,183 @@
+
+                  var decode =  jwt.decode(req.body.token,config.secretKey);
+                  console.log(decode);
+                  if(decode.hasOwnProperty('Username')){
+                    userModel.find({
+                        "Username": decode.Username
+                      },function(err,docs){
+                        if(err) {
+                          res.status(500).json({status:'error', message: 'Datebase Error:' + err , docs:''});
+                        }
+                        else {
+                          var value;
+                          var newAnswerID = req.body.AnswerID;
+                          var x;
+                          var flag;
+                          for(var i=0;i<docs[0].LikedOrNot.length;i++){
+                            if(docs[0].LikedOrNot[i].AnswerID == newAnswerID){
+                              flag=true;
+                              if(docs[0].LikedOrNot[i].Liked == 0) {
+
+                                  value = 1;
+                                  console.log("trueeeeeee",value);
+                                  x=i;
+                                  break;
+                                }
+
+                                else {
+                                  value = 0;
+                                  console.log("falseeeeeeeeeeee",value)
+                                }
+                              }
+                              else {
+                                  flag = false;
+                              }
+                            }
+                            var field = "LikedOrNot."+x+".Liked";
+                            console.log(field)
+
+                            if(flag){
+                                console.log("inside flag",newAnswerID,value,flag)
+                                userModel.updateOne(
+                                  {"LikedOrNot.AnswerID": newAnswerID },
+                                    {$set: {
+                                        'LikedOrNot.$.Liked': value
+                                      }},
+                                   function(err,user){
+                                     if(err){
+                                       console.log(err)
+                                       res.status(500).json({status:'error', message: 'Datebase Error:' + err , docs:''});
+                                     }
+                                     else {
+                                       console.log(docs[0])
+
+                                       console.log('liked status updated')
+
+                                       res.status(200).json({status:'success', message: 'Success from update like status', docs: {status:true} });
+
+                                     }
+                                   }
+                                  )
+
+                            }
+
+                            else {
+
+                              newAnswerID = req.body.AnswerID;
+                              value = 1;
+                              userModel.update(
+                                 { "Username": decode.Username },
+                                 { $push:
+                                    {
+                                      "LikedOrNot":{ AnswerID:newAnswerID, Liked:value}
+                                    }
+                                 },
+                                 function(err,user){
+                                   if(err){
+                                      res.status(500).json({status:'error', message: 'Datebase Error:' + err , docs:''});
+                                   }
+                                   else {
+                                     console.log(user)
+                                     console.log('liked status added')
+
+                                   }
+                                 }
+                                )
+
+                              }
+
+                        }
+
+                      });
+                  }
+
+
+                  
+                  else if(decode.hasOwnProperty('Id')){
+                    googleUserModel.find({
+                        "Id": decode.Id
+                      },function(err,docs){
+                        if(err) {
+                          res.status(500).json({status:'error', message: 'Datebase Error:' + err , docs:''});
+                        }
+                        else {
+                          var value;
+                          var newAnswerID = req.body.AnswerID;
+                          var x;
+                          var flag;
+
+                          for(var i=0;i<docs[0].LikedOrNot.length;i++){
+                            if(docs[0].LikedOrNot[i].AnswerID == newAnswerID){
+                              flag=true;
+                              if(docs[0].LikedOrNot[i].Liked == 0) {
+                                  value = 1;
+                                  console.log("trueeeeeee",value);
+                                  x=i;
+                                  break;
+                                }
+                                else {
+                                  value = 0;
+                                  console.log("falseeeeeeeeeeee",value)
+                                }
+                              }
+                              else {
+                                  flag = false;
+                              }
+                            }
+                            var field = "LikedOrNot."+x+".Liked";
+                            console.log(field)
+
+                            if(flag){
+                                console.log("inside flag",newAnswerID,value,flag)
+                                googleUserModel.updateOne(
+                                  {"LikedOrNot.AnswerID": newAnswerID },
+                                    {$set: {
+                                        'LikedOrNot.$.Liked': value
+                                      }},
+                                   function(err,user){
+                                     if(err){
+                                       console.log(err)
+                                        res.status(500).json({status:'error', message: 'Datebase Error:' + err , docs:''});
+                                     }
+                                     else {
+                                       console.log(user)
+                                       console.log('liked status updated')
+                                       res.status(200).json({status:'success', message: 'Success from update like status', docs: {status:true} });
+
+                                     }
+                                   }
+                                  )
+
+                            }
+
+                            else {
+
+                              newAnswerID = req.body.AnswerID;
+                              value = 1;
+                              googleUserModel.update(
+                                 { "Id": decode.Id },
+                                 { $push:
+                                    {
+                                      "LikedOrNot":{ AnswerID:newAnswerID, Liked:value}
+                                    }
+                                 },
+                                 function(err,user){
+                                   if(err){
+                                      res.status(500).json({status:'error', message: 'Datebase Error:' + err , docs:''});
+                                   }
+                                   else {
+                                     console.log(user)
+                                     console.log('liked status added')
+
+                                   }
+                                 }
+                                )
+
+                              }
+
+                        }
+
+                      });
+
+
+                  }

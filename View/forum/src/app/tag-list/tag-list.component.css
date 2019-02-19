@@ -1,0 +1,9 @@
+.tag {
+  display:table;
+  background-color:#E7E4D5;
+  border-radius: 50px 50px;
+}
+.tag:hover{
+  background-color: #3278F1;
+  box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}

@@ -1,0 +1,78 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <div class="text-primary">
+    <h1>Answer'em!</h1>
+  </div>
+  <div class="display-box">
+  <div class="question-box">
+    <div class="ques-desc">
+    <h2 class="title">{{data.Title}}</h2>
+    <h5 class="description"[innerHtml]="data.Description"> </h5>
+    </div>
+
+    <div class="row">
+
+      <div
+            class="col-md-1 tag"
+            *ngFor="let tag of tagArray;let i=index"
+            (click)="getTaggedQuestions(tag.value)"
+            data-toggle="tooltip"
+            title="{{tag.value}}">
+                  {{tag.value}}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="previous-answers-box alert alert-primary">
+<h5>Previous answers</h5>
+    <div *ngIf="noAnswer">
+        <div class="alert alert-success">
+          No answers yet :(
+        </div>
+    </div>
+
+
+    <div class="row alert alert-info all-answers" *ngFor="let answer of answerData;let i = index">
+
+              <div class="col-md-3">
+                {{answer.DateString}}
+              </div>
+
+              <div class="col-md-3" [innerHtml]="answer.Answer">
+
+              </div>
+
+              <div class="col-md-3">
+                -{{answer.Username}}
+              </div>
+
+              <div class="col-md-3" >
+                <span class="like-icon" data-toggle="tooltip" title="Like, if you Like it">
+                  <i class="icon ion-md-thumbs-up" (click)="incrementLikeCount(answer._id,answer.likesCount)"></i>
+                    {{answer.likesCount}}
+                </span>
+
+
+            </div>
+    </div>
+  </div>
+  <div class="">
+
+    <share-button  button="facebook" text="Share" [showText]="true" [url]="shareUrl"></share-button>
+    <share-button  button="twitter" text="Tweet" [showText]="true" [url]="shareUrl"></share-button>
+    <share-button  button="linkedin" text="Share" [showText]="true" [url]="shareUrl"></share-button>
+    <button class="btn-primary" (click)="copyClicked()"><i class="icon ion-md-copy" ngxClipboard [cbContent]="shareUrl"></i></button>
+
+  </div>
+  Post your answer
+
+  <div class="your-answer-box" [formGroup]="answerForm">
+        <ckeditor [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo'] }" formControlName="Answer" [editor]="Editor" data="Describe your question" ></ckeditor>
+      <button class="button-background btn btn-primary" type="button" name="button" (click)="addAnswer()">Submit!</button>
+  </div>
+
+
+</div>
+
+</div>

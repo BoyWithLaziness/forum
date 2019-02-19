@@ -1,0 +1,21 @@
+.container {
+  text-align: center;
+}
+.row {
+  margin:25px auto;
+}
+
+.labels {
+  text-align: right;
+}
+
+.inputs {
+
+}
+.login-box {
+  padding:5%;
+  /* border : solid 2px; */
+}
+button ,a{
+  margin:2%;
+}

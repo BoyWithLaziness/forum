@@ -1,0 +1,40 @@
+{
+  "name": "ckeditor5-emptyness",
+  "version": "0.2.1",
+  "description": "How empty is your CKEditor instance? Adds observable isEmpty property and CSS selectors to editors.",
+  "keywords": [
+    "ckeditor5",
+    "ckeditor5-plugin"
+  ],
+  "dependencies": {
+    "@ckeditor/ckeditor5-core": "^11.0.1",
+    "@ckeditor/ckeditor5-engine": "^11.0.0",
+    "@ckeditor/ckeditor5-utils": "^11.0.0"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-editor-classic": "^11.0.1",
+    "@ckeditor/ckeditor5-essentials": "^10.1.2",
+    "@ckeditor/ckeditor5-paragraph": "^10.0.3",
+    "eslint": "^5.5.0",
+    "eslint-config-ckeditor5": "^1.0.7",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=6.0.0",
+    "npm": ">=3.0.0"
+  },
+  "contributors": [
+    "Alex Eckermann <alex@alexeckermann.com> (https://twitter.com/alexeckermann)"
+  ],
+  "license": "(GPL-2.0 OR LGPL-2.1 OR MPL-1.1)",
+  "bugs": "https://github.com/alexeckermann/ckeditor5-emptyness/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexeckermann/ckeditor5-emptyness.git"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": { }
+}

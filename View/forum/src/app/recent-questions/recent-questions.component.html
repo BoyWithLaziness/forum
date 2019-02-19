@@ -1,0 +1,18 @@
+
+<div class="container">
+
+  <div class="recent-questions-box">
+  <div class="text-primary">
+    <h3>What others have asked up till now.. :)</h3>
+  </div>
+    <ul>
+        <li *ngFor="let item of data; let i = index">
+          <div class="row">
+            <div class="col-md-3">{{i}}</div>
+            <div class="col-md-3"><a routerLink="/display-question/{{item._id}}">{{item.Title}}</a></div>
+            <div class="col-md-3">{{item.DateString}}</div>
+          </div>
+        </li>
+    </ul>
+  </div>
+</div>

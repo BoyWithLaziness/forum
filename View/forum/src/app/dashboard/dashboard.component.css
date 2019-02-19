@@ -1,0 +1,12 @@
+.container {
+  text-align: center;
+}
+header,h2 {
+  padding:50px;
+}
+.show-question{
+  margin-bottom: 10%;
+}
+.logout {
+  float:right;
+}

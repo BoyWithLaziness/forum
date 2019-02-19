@@ -1,0 +1,102 @@
+
+<app-nav-bar></app-nav-bar>
+<div class="container" [formGroup]="registerForm">
+  <div class="alert alert-primary">
+    <h2 class="text-primary">Register yourself here!</h2>
+  </div>
+<div class="row">
+  <div class="col-md-4 labels">
+    Email:
+  </div>
+  <div class="col-md-4 inputs">
+    <input
+    formControlName="email"
+    [class.is-invalid] ="email.invalid && email.touched"
+    type="text"
+    class="form-control"
+    value=""
+    placeholder="Enter your valid email address">
+    <div
+    [class.d-none]="email.valid || email.untouched"
+    class="text-danger">
+    Correct Email is required!
+  </div>
+  <div class="text-info"  *ngIf="email.dirty">
+    Checked  {{checkEmail}} in our database
+  </div>
+  <div class="text-success" *ngIf="email.valid" [class.d-none]="(uniqueEmailTruthValue === true) || email.untouched || email.pristine ">
+    Email address valid
+  </div>
+</div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-4 labels">
+    Username:
+  </div>
+  <div class="col-md-4 inputs">
+    <input
+    formControlName="userName"
+    [class.is-invalid] ="userName.invalid && userName.touched"
+    type="text"
+    class="form-control"
+    value=""
+    [(ngModel)]="checkUsername"
+    placeholder="Enter your username" >
+    <div
+    [class.d-none]="userName.valid || userName.untouched"
+    class="text-danger">
+    Username is required!
+  </div>
+  <div class="text-info"  *ngIf="userName.dirty">
+    Checked  {{checkUsername}} in our database
+  </div>
+  <div class="text-danger" *ngIf="uniqueUsernameTruthValue === true">
+    Username  already exists, please type in another
+  </div>
+  <div class="text-danger" *ngIf="userName.errors?.pattern">
+    Username should only contain characters
+  </div>
+  <div class="text-success" *ngIf="userName.valid" [class.d-none]="(uniqueUsernameTruthValue === true) || userName.untouched || userName.pristine ">
+    Username valid
+  </div>
+</div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-4 labels">
+    Password:
+  </div>
+  <div class="col-md-4 inputs">
+    <input
+    formControlName="password"
+    [class.is-invalid] ="password.invalid && password.touched"
+    type="text"
+    class="form-control"
+    placeholder="Enter your password">
+    <div
+    [class.d-none]="password.valid || password.untouched"
+    class="text-danger">
+    Correct format password is required!<br>
+    <div class="text-info">
+      Should be atmost 8 characters<br>
+      Should be atleast 4 characters <br>
+      Should contain atleast one number,one special symbol <br>
+      And it should start with alphabet <br>
+    </div>
+  </div>
+  </div>
+</div>
+
+<br>
+<button
+class="button-background btn btn-primary"
+type="submit"
+[class.disabled]="registerForm.invalid"
+(click)="addData()">
+Register
+</button>
+
+</div>

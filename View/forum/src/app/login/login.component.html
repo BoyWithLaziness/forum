@@ -1,0 +1,77 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container" [formGroup]="loginForm">
+
+
+
+  <div class="alert alert-primary">
+    <h2 class="text-primary">Com'on Login</h2>
+  </div>
+  <div class="login-box">
+    <div class="row">
+
+      <div class="col-md-4 labels ">
+        Username:
+      </div>
+      <div class="col-md-4 inputs">
+        <input
+        #username
+        formControlName="userName"
+        type="text"
+        class="form-control">
+        <div
+        [class.d-none]="userName.valid || userName.untouched"
+        class="text-danger">
+        User Name is required!
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-4 labels">
+      Password:
+    </div>
+    <div class="col-md-4 inputs">
+      <input
+      #pass
+      formControlName = "password"
+      type="password"
+      class="form-control">
+
+      <div
+      [class.d-none]="password.valid || password.untouched"
+      class="text-danger">
+      Password is required!
+    </div>
+
+
+  </div>
+</div>
+
+<button
+class="button-background btn btn-primary"
+type="submit"
+name="button"
+[class.disabled]="loginForm.invalid"
+(click)="checkCredentials(username.value,pass.value)">
+Login
+</button>
+</div>
+<div class="signin-google">
+  <app-signin></app-signin>
+</div>
+
+<div class="register-box">
+  <h4 class="text-primary">
+    Did not register yet?!
+  </h4>
+
+  <a class="button-background btn btn-info" routerLink='/register'>
+    Register
+  </a>
+</div>
+</div>

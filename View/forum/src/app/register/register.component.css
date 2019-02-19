@@ -1,0 +1,20 @@
+.container {
+  text-align: center;
+}
+.row {
+  margin:25px auto;
+}
+
+.labels {
+  text-align: right;
+}
+button{
+  margin-bottom: 25px;
+}
+.inputs {
+
+}
+.bootstrap-datetimepicker-widget {
+  list-style: none;
+  background-color: #fff;
+}

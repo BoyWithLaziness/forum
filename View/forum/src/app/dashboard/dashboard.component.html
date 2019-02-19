@@ -1,0 +1,24 @@
+<app-nav-bar ></app-nav-bar>
+<div class="container">
+
+  <header class="alert alert-primary">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="button-background btn btn-primary logout" type="button" name="button" (click)="logout()">Logout</button>
+      </div>
+    </div>
+    <h3 class="text-primary">Dashboard</h3>
+    <h4>Welcome, {{Username}}</h4>
+
+
+  </header>
+
+  <a class="button-background btn btn-primary" type="button" name="button" routerLink="/ask-question">Ask a question!</a>
+
+  <h2>Or</h2>
+
+  <p>Answer below questions</p>
+  <div class="show-question">
+  <app-recent-questions> </app-recent-questions>
+  </div>
+</div>

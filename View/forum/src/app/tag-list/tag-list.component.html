@@ -1,0 +1,23 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+
+  <div class="recent-questions-box">
+  <div class="alert alert-info">
+    <h3>Tag-list :)</h3>
+  </div>
+    <ul>
+        <li *ngFor="let item of data; let i = index">
+          <div class="row">
+            <div class="col-md-3">{{i}}</div>
+            <div class="col-md-3"><a routerLink="/display-question/{{item._id}}">{{item.Title}}</a></div>
+            <div class="col-md-3">{{item.DateString}}</div>
+          </div>
+          <div class="row">
+                  <div class="col-md-1 tag" *ngFor="let tag of item.Tags" (click)="getNewTaggedQuestions(tag)">
+                    {{tag}}
+                  </div>
+          </div>
+        </li>
+    </ul>
+  </div>
+</div>
