@@ -39,5 +39,7 @@ router.post('/forum/is_liked',users.isLiked);
 router.post('/forum/change_like_status',users.changeLikeStatus);
 router.post('/forum/decrement_likes',QandA.decrementLikeCount);
 router.post('/forum/get_google_user',googleUsers.getUser);
+router.post('/forum/get_google_user_qa_info',googleUsers.getQAInfo);
+router.post('/forum/get_user_qa_info',users.getQAInfo)
 
 module.exports = router;

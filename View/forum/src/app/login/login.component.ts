@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpHandlerService} from '../http-handler.service'
 import {TokenHandlerService} from '../token-handler.service'
-
+import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
 
 
@@ -18,7 +18,8 @@ loginForm: FormGroup;
   private fb:FormBuilder,
   private router:Router,
   private http:HttpHandlerService,
-  private token:TokenHandlerService,) { }
+  private token:TokenHandlerService,
+  private toastr: ToastrService) { }
 
   ngOnInit() {
 
@@ -59,7 +60,7 @@ loginForm: FormGroup;
       }
       }
       else {
-        //this.toastr.warning('(ಠ_ಠ)', 'Sorry, wrong credentials');
+        this.toastr.warning('(ಠ_ಠ)', 'Sorry, wrong credentials');
         console.log("not logged in")
       }
     });

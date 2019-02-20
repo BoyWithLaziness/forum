@@ -4,9 +4,68 @@
 header,h2 {
   padding:50px;
 }
+a:hover {
+    text-decoration: none;
+}
 .show-question{
   margin-bottom: 10%;
 }
 .logout {
   float:right;
+}
+.options{
+
+}
+.ask-div{
+    text-align: center;
+    font-size:40px;
+    color: #3278F1;
+    text-shadow: 7px 6px #E7E4D5;
+  /* margin: 20%;*/
+}
+
+.shadow {
+   /* color: white; */
+   font: bold 52px Helvetica, Arial, Sans-Serif;
+   /* text-shadow: 1px 1px #fe4902,
+                2px 2px #fe4902,
+                3px 3px #fe4902; */
+                text-shadow: 1px 1px #5cb85c,
+                             2px 2px #5cb85c,
+                             3px 3px #5cb85c;
+}
+.shadow:hover {
+   position: relative;
+   /* text-shadow: 1px 1px #fe4902,
+                2px 2px #fe4902,
+                3px 3px #fe4902,
+                4px 4px #fe4902,
+                5px 5px #fe4902,
+                6px 6px #fe4902; */
+                text-shadow: 1px 1px #5cb85c,
+                             2px 2px #5cb85c,
+                             3px 3px #5cb85c,
+                             4px 4px #5cb85c,
+                             5px 5px #5cb85c,
+                             6px 6px #5cb85c;
+}
+.option-1{
+  font-size: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.option-2{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: auto;
+  margin-right: auto;
+  height:250px;
+}
+.option-3{
+  font-size: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.number{
+  font-size:55px;
+  margin:15%;
 }

@@ -10,3 +10,19 @@ opacity:1;
 .button-background {
   box-shadow: 5px 5px 5px 5px 	#E7E4D5;
 }
+.component{
+  margin-top: 5%;
+  margin-left:12%;
+  margin-right:12%;
+  padding-bottom: 3%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em ;
+  transform: translateY(-0.25em);
+}
+.animat {
+  color: var(--color);
+  transition: 0.25s;
+}

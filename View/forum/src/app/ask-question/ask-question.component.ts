@@ -36,6 +36,7 @@ export class AskQuestionComponent implements OnInit {
         Tags:[Validators.required]
 
     });
+    
     this.getTags();
 
   }

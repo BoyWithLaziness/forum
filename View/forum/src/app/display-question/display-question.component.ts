@@ -136,7 +136,7 @@ export class DisplayQuestionComponent implements OnInit {
       //this.answerData[i].Username = this.answerUsername;
       }
       console.log("this is the this.answerData",this.answerData);
-  
+
 
 
     },error=>{},()=>this.getGoogleUsernames());
@@ -179,7 +179,7 @@ incrementLikeCount(AnswerID,likesCount){
           }
           else {
                 console.log('LikedOrNot==1')
-
+                
                 this.http.post('forum/decrement_likes',data)
                 .subscribe(res=>{
                     console.log(res);

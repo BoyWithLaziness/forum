@@ -23,6 +23,7 @@ import { TagInputModule } from 'ngx-chips';
 import { TagListComponent } from './tag-list/tag-list.component';
 import { ShareButtonModule } from '@ngx-share/button';
 import { ShareButtonsModule } from '@ngx-share/buttons';
+import { Ng2OdometerModule } from 'ng2-odometer'; // <-- import the module
 
 import { ClipboardModule } from 'ngx-clipboard';
 
@@ -84,6 +85,7 @@ export function getAuthServiceConfigs() {
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+     Ng2OdometerModule.forRoot(),
     CKEditorModule,
     HttpClientModule,
     TagInputModule,

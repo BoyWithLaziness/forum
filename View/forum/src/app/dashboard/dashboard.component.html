@@ -2,19 +2,33 @@
 <div class="container">
 
   <header class="alert alert-primary">
-    <div class="row">
-      <div class="col-md-12">
-        <button class="button-background btn btn-primary logout" type="button" name="button" (click)="logout()">Logout</button>
-      </div>
-    </div>
     <h3 class="text-primary">Dashboard</h3>
     <h4>Welcome, {{Username}}</h4>
-
-
   </header>
 
-  <a class="button-background btn btn-primary" type="button" name="button" routerLink="/ask-question">Ask a question!</a>
+  <div class="options">
+    <div class="row">
+    <div class="col-md-3 option-1 alert-success raise animat">
+      you have answered
+      <div class="number">
+       <ng2-odometer [number]="questionCount" [config]="{ }"></ng2-odometer>
+       </div>
+       questions
+    </div>
 
+    <a class="col-md-5 option-2 alert-primary raise animat shadow" routerLink="/ask-question" data-toggle="tooltip" title="Ask!">
+      Ask<br> a<br> Question!
+    </a>
+
+    <div class="col-md-3 option-3 alert-success raise animat">
+      you have asked
+      <div class="number">
+       <ng2-odometer [number]="answerCount" [config]="{ }"></ng2-odometer>
+       </div>
+       questions
+    </div>
+    </div>
+  </div>
   <h2>Or</h2>
 
   <p>Answer below questions</p>

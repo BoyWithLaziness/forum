@@ -7,21 +7,21 @@
 
   <div class="ask-question-box" [formGroup]="askQuestionForm">
 
-    <div class="row">
+    <div class="row input">
         <div class="col-md-12">
           <input class="input-title" formControlName="Title" type="text" name="" value="" placeholder="Title">
         </div>
     </div>
 
-    <div class="row">
+    <div class="row input">
       <div class="editor col-md-12">
-        <ckeditor class="input-editor" formControlName ="Description" [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo'] }" [editor]="Editor" data="Describe your question" ></ckeditor>
+        <ckeditor class="" formControlName ="Description" [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo'], typing: 'sadsadsadsa.' }" [editor]="Editor" data="Describe your question" ></ckeditor>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row input">
       <div class="col-md-12">
-          <tag-input  class="input-tag" formControlName="Tags" [ngModel]="[]">
+          <tag-input  class="" formControlName="Tags" [ngModel]="[]">
               <tag-input-dropdown
                   [autocompleteItems]="items"
                   [showDropdownIfEmpty]="true"
@@ -29,7 +29,9 @@
               </tag-input-dropdown>
           </tag-input>
           <!-- <button class="btn btn-primary" type="button" name="button" (click)="save(tag)">Show tags</button> -->
-          <button class="button-background btn btn-primary" type="button" name="button" (click)="loadData()">Ask</button>
+          <div class="input">
+          <button class="btn btn-primary" type="button" name="button" (click)="loadData()">Ask</button>
+          </div>
       </div>
     </div>
 

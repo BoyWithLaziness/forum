@@ -3,39 +3,30 @@
 }
 .ask-question-box {
 text-align: center;
-
-}
-.row {
-  text-align: center;
-  margin-bottom:4%;
-}
-.row>.editor {
-  /* padding:4%; */
-}
-.input-title{
-  width:70%;
 }
 
-.input-editor{
-  width:70%;
-  padding-left: 35%;
-  padding-right: 35%;
+.input {
+  margin-bottom: 5%;
+  margin-left:15%;
+  margin-right:15%;
 }
-.input-tag{
-  margin-left: 15%;
-  margin-right: 15%;
 
-  width:70%;
+.input-title {
+  width: inherit;
+
+}
+p{
+  float:center;
 }
 button{
-  margin-top:10%;
+  margin-top: 5%;
 }
-.ck-editor__is-empty.ck-content.ck-editor__editable::before {
+
+
+/* .ck-editor__is-empty.ck-content.ck-editor__editable::before {
 	content: 'The editor is empty';
 	position: absolute;
 	display: block;
-
 	margin: var(--ck-spacing-large) 0;
-
 	color: #aaa;
-}
+} */

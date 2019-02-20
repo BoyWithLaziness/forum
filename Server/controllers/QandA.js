@@ -167,8 +167,6 @@ var QandA = {
 
               },
               decrementLikeCount: function(req,res) {
-
-
                 answerModel.find({
                   "_id": req.body.AnswerID
                 },function(err,answer){
@@ -255,4 +253,3 @@ var getQuestions = function(tag,docs){
 }
 
 module.exports = QandA;
-  

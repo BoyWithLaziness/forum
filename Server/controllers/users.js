@@ -1,5 +1,7 @@
 var googleUserModel =  require('../models/googleUser');
 var userModel =  require('../models/user');
+var questionModel = require('../models/question')
+var answerModel = require('../models/answer')
 var config = require('../config/config');
 var jwt = require('jsonwebtoken');
 var fs = require('fs');
@@ -18,7 +20,45 @@ var users  = {
   show: function(req, res) {
     res.status(200).json({status:'success', message: 'Success'});
   },
+  getQAInfo: function(req,res){
 
+              var decode = jwt.decode(req.body.token,config.secretKey);
+              console.log(decode)
+              questionModel.find({"Username":decode.Username}).count(function(err, questionCount){
+                if(err){
+                  console.log(err)
+                }
+                else {
+                  answerModel.find({'Username':decode.Username}).count(function(err,answerCount){
+                    if(err){
+                      console.log(err)}
+                      else {
+                          res.status(200).json({status:"success", message:"count done", docs:{Q:questionCount,A:answerCount}})
+                      }
+
+                  });
+                  // userModel.aggregate([
+                  //   {
+                  //     $match: {  'Username':decode.Username  }
+                  //   },
+                  //   {
+                  //     $project: {
+                  //               item: 1,
+                  //               numberOfLikedAnswers: { $cond: { if: { $isArray: "$LikedAnswers" }, then: { $size: "$LikedAnswers" }, else: "NA"} }
+                  //            }
+                  //   }
+                  // ],function(err,numberOfLikedAnswers){
+                  //   if(err){
+                  //
+                  //   }
+                  //   else {
+                  //     console.log("number of liked numbers",numberOfLikedAnswers)
+                  //     res.status(200).json({status:"success", message:"count done", docs:{Q:questionCount,A:numberOfLikedAnswers[0].numberOfLikedAnswers}})
+                  //   }
+                  // })
+
+                }});
+  },
   //get all users from users collection in DB
   getUsers: function(req,res) {
     userModel.find(function(err, docs){
@@ -334,7 +374,7 @@ var users  = {
 
           else if(decode.hasOwnProperty('Id')){
 
-            googleUserModel.find({ "Username": decode.Username},function(err, docs){
+            googleUserModel.find({ "Id": decode.Id},function(err, docs){
                   var user = docs[0];
                   if(user.LikedAnswers.includes(AnswerID)){
                       res.status(200).json({status:true, message:"Answer already liked", docs:{status:true}})
